@@ -6,4 +6,4 @@ ____
 pip install requests bs4 re pandas
 ```
 ____
-[Code](https://github.com/GepardXXX/eda_parser/blob/main/main/eda_parser.py)
+[Code](https://github.com/GepardXXX/drom_parser/blob/main/main/drom_parser.py)
