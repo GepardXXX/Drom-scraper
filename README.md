@@ -1,4 +1,4 @@
-# Drom Parser
+# Drom scraper
 
 [![GitHub license](https://img.shields.io/github/license/GepardXXX/Drom-scraper)](https://github.com/GepardXXX/Drom-scraper/blob/main/LICENSE)
 [![Python Version](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3100)
@@ -7,7 +7,7 @@
 ![GitHub watchers](https://img.shields.io/github/watchers/GepardXXX/Drom-scraper?style=social)
 ![GitHub stars](https://img.shields.io/github/stars/GepardXXX/Drom-scraper?style=social)
 
-Проект Drom Parser представляет собой парсер для сбора информации о продаже автомобилей на [drom.ru](https://drom.ru).
+Проект Drom scraper представляет собой парсер для сбора информации о продаже автомобилей на [drom.ru](https://drom.ru).
 
 ## Описание
 
@@ -22,8 +22,8 @@
 
 ## Структура проекта
 ```css
-drom-parser/
-├── parsers/
+Drom-scraper/
+├── main/
 │ └── scraper.py
 ├── README.md
 ├──LICENSE
