@@ -8,17 +8,20 @@ def get_data(url):
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'
     }
 
-    iterations = 9
+    iterations = 9  # Количество итераций для перехода по страницам
     print(f'Всего итеграций: {iterations}')
-    data = []
+    data = []  # Список для хранения данных о машинах
 
+    # Цикл по итерациям
     for i in range(0, 10):
+        # Замена номера страницы в URL для перехода на следующую страницу
         url = url.replace(f'page{i}', f'page{i+1}')
         req = requests.get(url, headers=headers)
         soup = bs(req.text, 'lxml')
 
         get_hrefs = soup.find_all('a', 'css-xb5nz8 e1huvdhj1')
 
+         # Цикл по найденным ссылкам на объявления о продаже машин
         for href in get_hrefs:
 
             req = requests.get(href.get('href'))
@@ -33,6 +36,7 @@ def get_data(url):
 
             power = features[1].text.split(',')
 
+            # Добавление данных о машине в список
             data.append([car_brand[1], car_brand[2],
                         features[0].text, power[0], price, href.get('href')])
 
@@ -42,6 +46,7 @@ def get_data(url):
             print(f'Итерация {i+1} завершена. Осталось итераций: {iterations}')
             iterations -= 1
 
+    # Создание DataFrame и сохранение в Excel-файл
     df = pd.DataFrame(
         data, columns=['Марка', 'Год', 'Двигатель', 'Мощность', 'Цена', 'URL-ссылка'])
     df.to_excel("parsers\drom\main\data.xlsx", index=False)
